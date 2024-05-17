@@ -11,9 +11,11 @@ pub struct Function{
 impl Function {
     fn f(&self, x: &f64) -> f64 {
         let mut f: f64 = 0.0;
+        let mut exp: i32 = 0;
 
-        self.coeficients.iter().for_each(|coef| {
-            f += coef * x;
+        self.coeficients.iter().for_each(|coef| unsafe {
+            f += coef * x.powi(exp);
+            exp += 1;
         });
 
         return f;
