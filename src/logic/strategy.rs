@@ -22,10 +22,10 @@ pub fn decide(game_state: GameState) -> Vec<PlayerAction> {
             // create linear bounds from sorted bounds
             let linear_bounds = LinearBounds::new(mixed_bound[0] as f64, mixed_bound[1] as f64);
             // create bounds
-            let bounds = Bounds::new(linear_bounds, LinearBounds::new(-1_000_000.0, 1_000_000.0));
+            let bounds = Bounds::new(linear_bounds, LinearBounds::new(-100_000.0, 100_000.0));
 
             // push action from base to random other base with 1 / 3 of troops
-            actions.push(PlayerAction {src: base.uid, dest: (func.approximate(&bounds,  100_000_000, 1).abs() as u32) % game_state.bases.len() as u32, amount: base.population / 3})
+            actions.push(PlayerAction {src: base.uid, dest: (func.approximate(&bounds,  1_000_000, 1).abs() as u32) % game_state.bases.len() as u32, amount: base.population / 3})
         }
     });
 
