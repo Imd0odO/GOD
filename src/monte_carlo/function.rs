@@ -13,7 +13,7 @@ impl Function {
         let mut f: f64 = 0.0;
         let mut exp: i32 = 0;
 
-        self.coeficients.iter().for_each(|coef| unsafe {
+        self.coeficients.iter().for_each(|coef| {
             f += coef * x.powi(exp);
             exp += 1;
         });
