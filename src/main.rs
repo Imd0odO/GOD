@@ -1,6 +1,7 @@
 #![allow(non_snake_case)]
 mod logic;
 mod models;
+mod monte_carlo;
 
 use axum::{
     routing::{get, post},
